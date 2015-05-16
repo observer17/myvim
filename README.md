@@ -3,7 +3,9 @@
 ## 安装
     $ git clone https://github.com/observer17/myvim.git ~/.vim
     $ ln -s ~/.vim/vimrc ~/.vimrc
+
 安装插件管理工具vundle
+
     $ mkdir -p ~/.vim/bundle
     $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
