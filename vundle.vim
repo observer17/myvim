@@ -32,6 +32,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'jiangmiao/auto-pairs'
 " jsbeautify
 Plugin 'vim-scripts/jsbeautify'
+" airline
+Plugin 'bling/vim-airline'
 " 语法高亮
 " slim
 Plugin 'slim-template/vim-slim.git'
