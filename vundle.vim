@@ -34,6 +34,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-scripts/jsbeautify'
 " airline
 Plugin 'bling/vim-airline'
+" vim-fugitive
+Plugin 'tpope/vim-fugitive'
 " 语法高亮
 " slim
 Plugin 'slim-template/vim-slim.git'

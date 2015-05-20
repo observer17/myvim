@@ -140,5 +140,9 @@ let NERDTreeWinPos='left'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif  " MacOS/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" 状态栏
+
+" airline
 set laststatus=2
+let g:airline#extensions#tabline#enable=1
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#tabline#tab_min_count=2
