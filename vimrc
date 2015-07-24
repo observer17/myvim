@@ -73,6 +73,14 @@ set softtabstop=2
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
+
+" key map
+" 分屏切换
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
+
 " vim-indent-guides
 " 随vim自启动
 let g:indent_guides_enable_on_vim_startup=1
@@ -84,8 +92,8 @@ let g:indent_guides_guide_size=1
 :nmap <silent><Leader>i <Plug>IndentGuidesToggle
 
 " 基于缩进或语法你行代码折叠
-" set foldmethod=indent
-set foldmethod=syntax
+ set foldmethod=indent
+"set foldmethod=syntax
 " 启动vim时关闭折叠代码
 set nofoldenable
 
@@ -117,7 +125,7 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" Plugin key-mapping 
+" Plugin key-mapping
 inoremap <expr><C-g>  neocomplcache#undo_completion()
 inoremap <expr><C-l>  neocomplcache#completion_common_string()
 
@@ -146,3 +154,11 @@ set laststatus=2
 let g:airline#extensions#tabline#enable=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#tab_min_count=2
+
+" 保存时自动移除行尾空格
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z`"
+endfunc
+autocmd  BufWrite * :call DeleteTrailingWS()
