@@ -36,9 +36,14 @@ Plugin 'vim-scripts/jsbeautify'
 Plugin 'bling/vim-airline'
 " vim-fugitive
 Plugin 'tpope/vim-fugitive'
+" surround
+Plugin 'tpope/vim-surround'
+
 " 语法高亮
 " slim
 Plugin 'slim-template/vim-slim.git'
+" jade
+Plugin 'digitaltoad/vim-jade'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
