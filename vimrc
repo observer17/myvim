@@ -8,10 +8,6 @@ filetype plugin indent on
 set autoindent
 set cindent
 
-" 配色
-" Javascript syntax highlight
-syntax enable
-
 " Set syntax highlighting for specific file types
 autocmd BufRead,BufNewFile Appraisals set filetype=ruby
 autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -53,9 +49,6 @@ set cursorcolumn
 set hlsearch
 " 禁止折行
 set nowrap
-" 语法高亮
-syntax enable
-syntax on
 " 输入命令时列出匹配项目
 set wildmenu
 
@@ -74,7 +67,10 @@ set softtabstop=2
 set textwidth=80
 set colorcolumn=+1
 
+
 " key map
+" mapleader
+let mapleader = ";"
 " 分屏切换
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
