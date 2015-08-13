@@ -155,6 +155,14 @@ let g:airline#extensions#tabline#enable=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#tabline#tab_min_count=2
 
+" fugitive
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gp :Gpush<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+
 " 保存时自动移除行尾空格
 func! DeleteTrailingWS()
   exe "normal mz"
