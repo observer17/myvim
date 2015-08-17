@@ -38,6 +38,8 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 " surround
 Plugin 'tpope/vim-surround'
+" conque term
+Plugin 'rosenfeld/conque-term'
 
 " 语法高亮
 " slim
