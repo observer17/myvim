@@ -46,6 +46,8 @@ Plugin 'rosenfeld/conque-term'
 Plugin 'slim-template/vim-slim.git'
 " jade
 Plugin 'digitaltoad/vim-jade'
+" json
+Plugin 'elzr/vim-json'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -18,8 +18,6 @@ autocmd Syntax javascript set syntax=jquery
 " Color scheme
 colorscheme molokai
 
-
-
 " 排版
 " 禁止光标闪烁
 set gcr=a:block-blinkon0
