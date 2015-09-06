@@ -80,15 +80,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
 
-" vim-indent-guides
-" 随vim自启动
-let g:indent_guides_enable_on_vim_startup=1
-" 从第二层开始可视化显示缩进
-let g:indent_guides_start_level=2
-" 色块宽度
-let g:indent_guides_guide_size=1
-" 快捷键 i 开/关缩进可视化
-:nmap <silent><Leader>i <Plug>IndentGuidesToggle
+" indentLine
+let g:indentLine_loaded = 1
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 220
+let g:indentLine_color_gui = '#ffffff'
+let g:indentLine_color_tty_dark = 1
+let g:indentLine_color_tty_light = 7
+let g:indentLine_bufNameExclude = ['NERD_tree.*']
 
 " 基于缩进或语法你行代码折叠
  set foldmethod=indent
@@ -144,7 +143,7 @@ let NERDTreeWinPos='left'
 " unite
 " enable yank history
 let g:unite_source_history_yank_enable = 1
-nnoremap <C-h> :Unite history/yank<CR>
+"nnoremap <C-h> :Unite history/yank<CR>
 nnoremap <C-p> :Unite -start-insert -vertical file_rec/async<CR>
 " airline
 set laststatus=2

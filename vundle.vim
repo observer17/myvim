@@ -16,7 +16,6 @@ Plugin 'scrooloose/nerdcommenter'
 " molokai配色方案
 Plugin 'tomasr/molokai'
 " 可视化缩进
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
 " emmet
 Plugin 'mattn/emmet-vim'
