@@ -141,20 +141,9 @@ let NERDTreeShowBookmarks=1
 " 窗口位置
 let NERDTreeWinPos='left'
 
-
-
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP ./'
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
-
+" unite
+"nnoremap <C-p> :Unite -start-insert -vertical file<cr>
+nnoremap <C-p> :Unite -start-insert -vertical file_rec/async<cr>
 " airline
 set laststatus=2
 let g:airline#extensions#tabline#enable=1

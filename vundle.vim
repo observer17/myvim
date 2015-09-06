@@ -25,7 +25,8 @@ Plugin 'terryma/vim-multiple-cursors'
 " 根据上下文进行补全
 Plugin 'Shougo/neocomplcache'
 " 文件及buffer模糊查询，快速打开文件
-Plugin 'kien/ctrlp.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 " 文本对齐插件, 可按等号、冒号、表格等来对齐文本
 Plugin 'godlygeek/tabular'
 " 括号自动补全
