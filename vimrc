@@ -142,8 +142,10 @@ let NERDTreeShowBookmarks=1
 let NERDTreeWinPos='left'
 
 " unite
-"nnoremap <C-p> :Unite -start-insert -vertical file<cr>
-nnoremap <C-p> :Unite -start-insert -vertical file_rec/async<cr>
+" enable yank history
+let g:unite_source_history_yank_enable = 1
+nnoremap <C-h> :Unite history/yank<CR>
+nnoremap <C-p> :Unite -start-insert -vertical file_rec/async<CR>
 " airline
 set laststatus=2
 let g:airline#extensions#tabline#enable=1
