@@ -17,8 +17,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tomasr/molokai'
 " 可视化缩进
 Plugin 'Yggdroot/indentLine'
-" emmet
-Plugin 'mattn/emmet-vim'
 " 多行/多列编辑
 Plugin 'terryma/vim-multiple-cursors'
 " 根据上下文进行补全
