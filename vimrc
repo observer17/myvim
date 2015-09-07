@@ -79,6 +79,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
+" 快速dakaivimrc文件
+nnoremap <leader>v :vs $MYVIMRC<CR>
+" 重读vimrc文件
+nnoremap <leader>sv :source $MYVIMR<CR>
+" 快速输入命令
+nnoremap <space> :
 
 " indentLine
 let g:indentLine_loaded = 1
