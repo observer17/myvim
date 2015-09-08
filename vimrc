@@ -95,11 +95,8 @@ let g:indentLine_color_tty_dark = 1
 let g:indentLine_color_tty_light = 7
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
 
-" 基于缩进或语法你行代码折叠
+" 基于缩进的代码折叠
  set foldmethod=indent
-"set foldmethod=syntax
-" 启动vim时关闭折叠代码
-set nofoldenable
 
 " 匹配括号的规则
 set matchpairs=(:),{:},[:],<:>
