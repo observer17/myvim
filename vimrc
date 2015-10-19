@@ -8,15 +8,14 @@ filetype plugin indent on
 set autoindent
 set cindent
 
-" 配色
+" Color
+colorscheme molokai
 
 " Set syntax highlighting for specific file types
 autocmd BufRead,BufNewFile Appraisals set filetype=ruby
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd Syntax javascript set syntax=jquery
 
-" Color scheme
-colorscheme molokai
 
 " 排版
 " 禁止光标闪烁
@@ -79,10 +78,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
-" 快速dakaivimrc文件
+" 快速打开vimrc文件
 nnoremap <leader>v :vs $MYVIMRC<CR>
 " 重读vimrc文件
-nnoremap <leader>sv :source $MYVIMR<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 " 快速输入命令
 nnoremap <space> :
 
@@ -96,7 +95,8 @@ let g:indentLine_color_tty_light = 7
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
 
 " 基于缩进的代码折叠
- set foldmethod=indent
+set foldmethod=indent
+set nofoldenable
 
 " 匹配括号的规则
 set matchpairs=(:),{:},[:],<:>
