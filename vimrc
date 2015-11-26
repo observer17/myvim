@@ -146,8 +146,13 @@ let NERDTreeWinPos='left'
 " unite
 " enable yank history
 let g:unite_source_history_yank_enable = 1
-"nnoremap <C-h> :Unite history/yank<CR>
-nnoremap <C-p> :Unite -start-insert -vertical file_rec/async<CR>
+" fuzzy match
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"nnoremap <C-v> :Unite history/yank<CR>
+nnoremap <leader>f  :Unite -start-insert file_rec/async<CR>
+nnoremap <leader>fs :Unite -start-insert -default-action=below file_rec/async<CR>
+nnoremap <leader>fv :Unite -start-insert -default-action=right file_rec/async<CR>
+nnoremap <leader>ft :Unite -start-insert -default-action=tabopen file_rec/async<CR>
 " airline
 set laststatus=2
 let g:airline#extensions#tabline#enable=1
