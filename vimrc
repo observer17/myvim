@@ -40,6 +40,8 @@ set laststatus=2
 set ruler
 " 显示行号
 set number
+" 显示相对行号
+set relativenumber
 set numberwidth=4
 " 高亮当前行/列
 set cursorline
@@ -149,7 +151,7 @@ let g:unite_source_history_yank_enable = 1
 " fuzzy match
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 "nnoremap <C-v> :Unite history/yank<CR>
-nnoremap <leader>f  :Unite -start-insert file_rec/async<CR>
+nnoremap <leader>fc :Unite -start-insert file_rec/async<CR>
 nnoremap <leader>fs :Unite -start-insert -default-action=below file_rec/async<CR>
 nnoremap <leader>fv :Unite -start-insert -default-action=right file_rec/async<CR>
 nnoremap <leader>ft :Unite -start-insert -default-action=tabopen file_rec/async<CR>
@@ -164,7 +166,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#right_sep = '>'
+let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#right_sep = '<'
 let g:airline#extensions#tabline#show_close_button = 0
 
 " fugitive
