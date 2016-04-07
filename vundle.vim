@@ -40,10 +40,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'rosenfeld/conque-term'
 
 " 语法高亮
+Plugin 'posva/vim-vue'
 " slim
 Plugin 'slim-template/vim-slim.git'
 " jade
 Plugin 'digitaltoad/vim-jade'
+"less
+Plugin 'groenewege/vim-less'
 " json
 Plugin 'elzr/vim-json'
 
