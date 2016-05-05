@@ -16,6 +16,9 @@ autocmd BufRead,BufNewFile Appraisals set filetype=ruby
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd Syntax javascript set syntax=jquery
 
+" syntax highlighting
+" vim-javascript
+let g:javascript_enable_domhtmlcss = 1
 
 " 排版
 " 禁止光标闪烁

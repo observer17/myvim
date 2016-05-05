@@ -39,16 +39,23 @@ Plugin 'tpope/vim-surround'
 " conque term
 Plugin 'rosenfeld/conque-term'
 
-" 语法高亮
+" syntax highlight
+" vue
 Plugin 'posva/vim-vue'
+" javascript
+Plugin 'pangloss/vim-javascript'
+" jsx
+Plugin 'mxw/vim-jsx'
 " slim
 Plugin 'slim-template/vim-slim.git'
-" jade
-Plugin 'digitaltoad/vim-jade'
+" pug(jade)
+Plugin 'digitaltoad/vim-pug'
 "less
 Plugin 'groenewege/vim-less'
 " json
 Plugin 'elzr/vim-json'
+" elm
+Plugin 'lambdatoast/elm.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
