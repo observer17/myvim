@@ -147,6 +147,8 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 let NERDTreeShowBookmarks=1
 " 窗口位置
 let NERDTreeWinPos='left'
+" ignore
+let NERDTreeIgnore = ['^node_modules$[[dir]]']
 
 " unite
 " enable yank history
