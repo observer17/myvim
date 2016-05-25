@@ -38,6 +38,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 " conque term
 Plugin 'rosenfeld/conque-term'
+" taglist
+Plugin 'vim-scripts/taglist.vim'
 
 " syntax highlight
 " vue
@@ -56,6 +58,10 @@ Plugin 'groenewege/vim-less'
 Plugin 'elzr/vim-json'
 " elm
 Plugin 'lambdatoast/elm.vim'
+
+" syntax checking
+" syntastic
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

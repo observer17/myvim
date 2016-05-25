@@ -90,6 +90,17 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " 快速输入命令
 nnoremap <space> :
 
+" taglist
+nnoremap <leader>tt :TlistToggle<CR>
+" set ctags
+let g:Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+" display tags for current active buffer
+let Tlist_Show_One_File = 1
+"close vim if taglist is the only window
+let Tlist_Exit_OnlyWindow = 1
+" place taglist window on the right side
+let Tlist_Use_Right_Window = 1
+
 " indentLine
 let g:indentLine_loaded = 1
 let g:indentLine_enabled = 1
@@ -192,6 +203,18 @@ nmap <Leader>ta: :Tabularize /:<CR>
 vmap <Leader>ta: :Tabularize /:<CR>
 nmap <Leader>ta, :Tabularize /,<CR>
 vmap <Leader>ta, :Tabularize /,<CR>
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+" use jshint
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+" show any linting errors immediately
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " 保存时自动移除行尾空格
 func! DeleteTrailingWS()
