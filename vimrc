@@ -117,25 +117,6 @@ set nofoldenable
 " 匹配括号的规则
 set matchpairs=(:),{:},[:],<:>
 
-
-" neocomplcache
-" Disable AutoComplPop
-let g:acp_enableAtStartup = 0
-" use neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-" use smartcase
-let g:neocomplcache_enable_smart_case = 1
-" set minimum syntax keyword length
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
- let g:neocomplcache_dictionary_filetype_lists = {
-  \ 'default' : '',
-  \ 'vimshell' : $HOME.'/.vimshell_hist',
-  \ 'scheme' : $HOME.'/.gosh_completions'
- \}
-
 " Define keyword
 if !exists('g:neocomplcache_keyword_patterns')
   let g:neocomplcache_keyword_patterns = {}
@@ -205,17 +186,17 @@ nmap <Leader>ta, :Tabularize /,<CR>
 vmap <Leader>ta, :Tabularize /,<CR>
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+ set statusline+=%#warningmsg#
+ set statusline+=%{SyntasticStatuslineFlag()}
+ set statusline+=%*
 " use eslint
-let g:syntastic_javascript_eslint_exec = 'eslint'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-" show any linting errors immediately
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+ let g:syntastic_javascript_eslint_exec = 'eslint'
+ let g:syntastic_javascript_checkers = ['eslint']
+ let g:syntastic_always_populate_loc_list = 1
+ let g:syntastic_auto_loc_list = 1
+ " show any linting errors immediately
+" let g:syntastic_check_on_open = 1
+ let g:syntastic_check_on_wq = 0
 
 " 保存时自动移除行尾空格
 func! DeleteTrailingWS()

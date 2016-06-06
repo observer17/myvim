@@ -19,8 +19,6 @@ Plugin 'tomasr/molokai'
 Plugin 'Yggdroot/indentLine'
 " 多行/多列编辑
 Plugin 'terryma/vim-multiple-cursors'
-" 根据上下文进行补全
-Plugin 'Shougo/neocomplcache'
 " 文件及buffer模糊查询，快速打开文件
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
@@ -40,6 +38,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'rosenfeld/conque-term'
 " taglist
 Plugin 'vim-scripts/taglist.vim'
+" youcompleteme
+Plugin 'Valloric/YouCompleteMe'
+" ternjs js补全
+Plugin 'ternjs/tern_for_vim'
 
 " syntax highlight
 " vue
