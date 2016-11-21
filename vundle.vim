@@ -60,6 +60,8 @@ Plugin 'groenewege/vim-less'
 Plugin 'elzr/vim-json'
 " elm
 Plugin 'lambdatoast/elm.vim'
+"stylus
+Plugin 'wavded/vim-stylus'
 
 " syntax checking
 " syntastic

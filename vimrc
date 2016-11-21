@@ -147,10 +147,10 @@ let g:unite_source_history_yank_enable = 1
 " fuzzy match
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 "nnoremap <C-v> :Unite history/yank<CR>
-nnoremap <leader>fc :Unite -start-insert file_rec/async<CR>
-nnoremap <leader>fs :Unite -start-insert -default-action=below file_rec/async<CR>
-nnoremap <leader>fv :Unite -start-insert -default-action=right file_rec/async<CR>
-nnoremap <leader>ft :Unite -start-insert -default-action=tabopen file_rec/async<CR>
+nnoremap <leader>fc :Unite -start-insert buffer/async<CR>
+nnoremap <leader>fs :Unite -start-insert -default-action=below buffer/async<CR>
+nnoremap <leader>fv :Unite -start-insert -default-action=right buffer/async<CR>
+nnoremap <leader>ft :Unite -start-insert -default-action=tabopen buffer/async<CR>
 
 " airline
 set laststatus=2
@@ -185,17 +185,22 @@ nmap <Leader>ta, :Tabularize /,<CR>
 vmap <Leader>ta, :Tabularize /,<CR>
 
 " syntastic
- set statusline+=%#warningmsg#
- set statusline+=%{SyntasticStatuslineFlag()}
- set statusline+=%*
+" do not need show message in statusline
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 " use eslint
- let g:syntastic_javascript_eslint_exec = 'eslint'
- let g:syntastic_javascript_checkers = ['eslint']
- let g:syntastic_always_populate_loc_list = 1
- let g:syntastic_auto_loc_list = 1
- " show any linting errors immediately
-" let g:syntastic_check_on_open = 1
- let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_eslint_exec = 'eslint'
+let g:syntastic_javascript_checkers = ['eslint']
+" ignore node_modules
+let g:syntastic_ignore_files = ['/node_modules/']
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+" show any linting errors immediately
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" disable balloons message
+let g:syntastic_enable_balloons = 0
 
 " 保存时自动移除行尾空格
 func! DeleteTrailingWS()
