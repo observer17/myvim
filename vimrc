@@ -8,7 +8,7 @@ filetype plugin indent on
 set autoindent
 set cindent
 
-" Color
+" scheme
 colorscheme molokai
 
 " Set syntax highlighting for specific file types
@@ -35,6 +35,7 @@ set gcr=a:block-blinkon0
 
 " 设置字体
 set guifont=Monaco:h13
+set encoding=utf-8
 
 " 显示状态栏
 set laststatus=2
@@ -64,10 +65,10 @@ filetype indent on
 set expandtab
 " 设置编辑时制表符占用空格数
 set tabstop=2
-" 设置格式化时制表符占用空格数
-set shiftwidth=2
 " 将连续数量的空格视为一个制表符
 set softtabstop=2
+" 设置格式化时制表符占用空格数
+set shiftwidth=2
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -109,6 +110,7 @@ let g:indentLine_color_tty_dark = 1
 let g:indentLine_color_tty_light = 7
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
 
+" enable folding
 " 基于缩进的代码折叠
 set foldmethod=indent
 set nofoldenable
@@ -170,8 +172,10 @@ let g:airline#extensions#tabline#show_close_button = 0
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gd :Gdiff<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
-nnoremap <silent> <Leader>gl :Glog<CR>
-nnoremap <silent> <Leader>gp :Gpush<CR>
+nnoremap <silent> <Leader>gw :Gwrite<CR>
+nnoremap <silent> <Leader>gl :Gllog<CR>
+nnoremap <silent> <Leader>gpl :Gpull<CR>
+nnoremap <silent> <Leader>gps :Gpush<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 
 " tabularize
@@ -192,6 +196,7 @@ vmap <Leader>ta, :Tabularize /,<CR>
 " use eslint
 let g:syntastic_javascript_eslint_exec = 'eslint'
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python = ['pylint']
 " ignore node_modules
 let g:syntastic_ignore_files = ['/node_modules/']
 "let g:syntastic_always_populate_loc_list = 1
@@ -201,6 +206,12 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " disable balloons message
 let g:syntastic_enable_balloons = 0
+
+" Tern
+nnoremap <Leader>trdf :TernDef<CR>
+nnoremap <Leader>trdc :TernDoc<CR>
+nnoremap <Leader>trty :TernType<CR>
+nnoremap <Leader>trrn :TernRename<CR>
 
 " 保存时自动移除行尾空格
 func! DeleteTrailingWS()
