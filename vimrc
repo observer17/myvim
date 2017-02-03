@@ -22,6 +22,8 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 " syntax highlighting
 " vim-javascript
 let g:javascript_enable_domhtmlcss = 1
+" highlight jsx in .js
+let g:jsx_ext_required = 0
 
 " 排版
 " 禁止光标闪烁
