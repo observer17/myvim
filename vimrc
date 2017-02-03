@@ -1,3 +1,7 @@
+"if has("gui_macvim")
+"else
+"endif
+
 " use vundle for vim plugin management
 source ~/.vim/vundle.vim
 
@@ -74,6 +78,7 @@ set shiftwidth=2
 set textwidth=80
 set colorcolumn=+1
 
+set clipboard=unnamed
 
 " key map
 " mapleader
@@ -118,17 +123,6 @@ set nofoldenable
 " 匹配括号的规则
 set matchpairs=(:),{:},[:],<:>
 
-" Define keyword
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mapping
-inoremap <expr><C-g>  neocomplcache#undo_completion()
-inoremap <expr><C-l>  neocomplcache#completion_common_string()
-
-
 " nerdtree
 " 启动快捷键
 map <C-t> :NERDTreeToggle<CR>
@@ -136,12 +130,11 @@ let NERDChristmasTree=0
 " 窗口大小
 let NERDTreeWinSize=35
 let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+" ignore
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$', '^node_modules$[[dir]]']
 let NERDTreeShowBookmarks=1
 " 窗口位置
 let NERDTreeWinPos='left'
-" ignore
-let NERDTreeIgnore = ['^node_modules$[[dir]]']
 
 " unite
 " enable yank history
@@ -188,24 +181,8 @@ vmap <Leader>ta: :Tabularize /:<CR>
 nmap <Leader>ta, :Tabularize /,<CR>
 vmap <Leader>ta, :Tabularize /,<CR>
 
-" syntastic
-" do not need show message in statusline
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-" use eslint
-let g:syntastic_javascript_eslint_exec = 'eslint'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python = ['pylint']
-" ignore node_modules
-let g:syntastic_ignore_files = ['/node_modules/']
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-" show any linting errors immediately
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" disable balloons message
-let g:syntastic_enable_balloons = 0
+" syntas check by ale
+let g:ale_linters = { 'javascript': ['eslint'] }
 
 " Tern
 nnoremap <Leader>trdf :TernDef<CR>

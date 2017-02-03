@@ -38,6 +38,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'rosenfeld/conque-term'
 " taglist
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'majutsushi/tagbar'
 " youcompleteme
 Plugin 'Valloric/YouCompleteMe'
 " ternjs js补全
@@ -62,10 +63,12 @@ Plugin 'elzr/vim-json'
 Plugin 'lambdatoast/elm.vim'
 "stylus
 Plugin 'wavded/vim-stylus'
+"tmux
+Plugin 'keith/tmux.vim'
 
 " syntax checking
 " syntastic
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
