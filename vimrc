@@ -12,8 +12,15 @@ filetype plugin indent on
 set autoindent
 set cindent
 
-" scheme
-colorscheme molokai
+"-------- -------- -------- --------
+"               Color
+"-------- -------- -------- --------
+let g:did_minibufexplorer_syntax_inits = 1
+set termguicolors
+" set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme tender
 
 " Set syntax highlighting for specific file types
 autocmd BufRead,BufNewFile Appraisals set filetype=ruby
@@ -79,8 +86,6 @@ set shiftwidth=2
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
-
-set clipboard=unnamed
 
 " key map
 " mapleader
