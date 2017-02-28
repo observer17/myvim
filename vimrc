@@ -5,23 +5,27 @@
 " use vundle for vim plugin management
 source ~/.vim/vundle.vim
 
-" 一定要放在语法高亮插件安装之后
 syntax enable
 filetype plugin indent on
 
 set autoindent
 set cindent
 
+
 "-------- -------- -------- --------
 "               Color
 "-------- -------- -------- --------
-let g:did_minibufexplorer_syntax_inits = 1
 set termguicolors
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme tender
+colorscheme molokai
+"colorscheme tender
 
+
+"-------- -------- -------- --------
+"               Syntax
+"-------- -------- -------- --------
 " Set syntax highlighting for specific file types
 autocmd BufRead,BufNewFile Appraisals set filetype=ruby
 autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -87,6 +91,14 @@ set shiftwidth=2
 set textwidth=80
 set colorcolumn=+1
 
+" enable folding
+" 基于缩进的代码折叠
+set foldmethod=indent
+set nofoldenable
+
+" 匹配括号的规则
+set matchpairs=(:),{:},[:],<:>
+
 " key map
 " mapleader
 let mapleader = ";"
@@ -102,6 +114,10 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " 快速输入命令
 nnoremap <space> :
 
+
+"-------- -------- -------- --------
+"               Plugin
+"-------- -------- -------- --------
 " taglist
 nnoremap <leader>tt :TlistToggle<CR>
 " set ctags
@@ -122,14 +138,6 @@ let g:indentLine_color_tty_dark = 1
 let g:indentLine_color_tty_light = 7
 let g:indentLine_bufNameExclude = ['NERD_tree.*']
 
-" enable folding
-" 基于缩进的代码折叠
-set foldmethod=indent
-set nofoldenable
-
-" 匹配括号的规则
-set matchpairs=(:),{:},[:],<:>
-
 " nerdtree
 " 启动快捷键
 map <C-t> :NERDTreeToggle<CR>
@@ -148,11 +156,14 @@ let NERDTreeWinPos='left'
 let g:unite_source_history_yank_enable = 1
 " fuzzy match
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#profile('default', 'contetxt', {
+\ 'start_insert': 1
+\ })
 "nnoremap <C-v> :Unite history/yank<CR>
-nnoremap <leader>fc :Unite -start-insert buffer/async<CR>
-nnoremap <leader>fs :Unite -start-insert -default-action=below buffer/async<CR>
-nnoremap <leader>fv :Unite -start-insert -default-action=right buffer/async<CR>
-nnoremap <leader>ft :Unite -start-insert -default-action=tabopen buffer/async<CR>
+nnoremap <leader>uc :Unite  file_rec/async<CR>
+nnoremap <leader>us :Unite  -default-action=below file/async<CR>
+nnoremap <leader>uv :Unite  -default-action=right file/async<CR>
+nnoremap <leader>ut :Unite  -default-action=tabopen file/async<CR>
 
 " airline
 set laststatus=2
@@ -188,7 +199,7 @@ vmap <Leader>ta: :Tabularize /:<CR>
 nmap <Leader>ta, :Tabularize /,<CR>
 vmap <Leader>ta, :Tabularize /,<CR>
 
-" syntas check by ale
+" ale (syntas check tool)
 let g:ale_linters = { 'javascript': ['eslint'] }
 
 " Tern
@@ -197,6 +208,10 @@ nnoremap <Leader>trdc :TernDoc<CR>
 nnoremap <Leader>trty :TernType<CR>
 nnoremap <Leader>trrn :TernRename<CR>
 
+
+"-------- -------- -------- --------
+"              Funtion
+"-------- -------- -------- --------
 " 保存时自动移除行尾空格
 func! DeleteTrailingWS()
   exe "normal mz"

@@ -13,8 +13,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 " 快捷注释
 Plugin 'scrooloose/nerdcommenter'
-" molokai配色方案
+" theme
 Plugin 'tomasr/molokai'
+Plugin 'jacoborus/tender.vim'
 " 可视化缩进
 Plugin 'Yggdroot/indentLine'
 " 多行/多列编辑
@@ -51,8 +52,6 @@ Plugin 'posva/vim-vue'
 Plugin 'pangloss/vim-javascript'
 " jsx
 Plugin 'mxw/vim-jsx'
-" slim
-Plugin 'slim-template/vim-slim.git'
 " pug(jade)
 Plugin 'digitaltoad/vim-pug'
 "less
@@ -65,9 +64,11 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'wavded/vim-stylus'
 "tmux
 Plugin 'keith/tmux.vim'
+" color
+Plugin 'ap/vim-css-color'
 
 " syntax checking
-" syntastic
+" ale
 Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
