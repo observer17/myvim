@@ -28,4 +28,5 @@
   * [youcompleteme](https://github.com/Valloric/YouCompleteMe) 代码补全引擎
   * [tern_for_vim](https://github.com/ternjs/tern_for_vim) 提供js自动补全
   * [ale](https://github.com/w0rp/ale) 语法检查
+  * [UltiSnips](https://github.com/SirVer/ultisnips) 代码片段
 

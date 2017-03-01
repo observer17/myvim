@@ -140,7 +140,7 @@ let g:indentLine_bufNameExclude = ['NERD_tree.*']
 
 " nerdtree
 " 启动快捷键
-map <C-t> :NERDTreeToggle<CR>
+map <Leader>fe :NERDTreeToggle<CR>
 let NERDChristmasTree=0
 " 窗口大小
 let NERDTreeWinSize=35
@@ -207,6 +207,12 @@ nnoremap <Leader>trdf :TernDef<CR>
 nnoremap <Leader>trdc :TernDoc<CR>
 nnoremap <Leader>trty :TernType<CR>
 nnoremap <Leader>trrn :TernRename<CR>
+
+" UltiSnips
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsExpandTrigger = '<c-t>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 
 "-------- -------- -------- --------

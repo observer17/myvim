@@ -70,6 +70,12 @@ Plugin 'ap/vim-css-color'
 " syntax checking
 " ale
 Plugin 'w0rp/ale'
+" snippet
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+" React code snippets
+Plugin 'epilande/vim-react-snippets'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
