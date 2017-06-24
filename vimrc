@@ -3,7 +3,7 @@
 "endif
 
 " use vundle for vim plugin management
-source ~/.vim/vundle.vim
+source ~/.vim/plug.vim
 
 syntax enable
 filetype plugin indent on
