@@ -214,6 +214,11 @@ let g:UltiSnipsExpandTrigger = '<c-t>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
+" Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 
 "-------- -------- -------- --------
 "              Funtion
