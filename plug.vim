@@ -8,13 +8,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 " theme
 Plug 'tomasr/molokai'
-Plug 'jacoborus/tender.vim'
 " 可视化缩进
 Plug 'Yggdroot/indentLine'
 " 多行/多列编辑
 Plug 'terryma/vim-multiple-cursors'
 " 文件及buffer模糊查询，快速打开文件
-Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 " vim-ack
 Plug 'mileszs/ack.vim'
@@ -56,9 +54,10 @@ Plug 'groenewege/vim-less'
 " json
 Plug 'elzr/vim-json'
 " elm
-Plug 'lambdatoast/elm.vim'
+Plug 'elmcast/elm-vim'
 "rust
 Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 "stylus
 Plug 'wavded/vim-stylus'
 "tmux

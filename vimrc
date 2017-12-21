@@ -113,6 +113,9 @@ nnoremap <leader>v :vs $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 " 快速输入命令
 nnoremap <space> :
+" 切换buffer
+nnoremap <C-B> :bp<CR>
+nnoremap <C-F> :bn<CR>
 
 
 "-------- -------- -------- --------
@@ -154,11 +157,6 @@ let NERDTreeWinPos='left'
 " unite
 " enable yank history
 let g:unite_source_history_yank_enable = 1
-" fuzzy match
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#profile('default', 'contetxt', {
-\ 'start_insert': 1
-\ })
 "nnoremap <C-v> :Unite history/yank<CR>
 nnoremap <leader>uc :Unite  file_rec/async<CR>
 nnoremap <leader>us :Unite  -default-action=below file/async<CR>
@@ -172,6 +170,7 @@ let g:airline#extensions#branch#enabled = 1
 let g:ariline#extensions#branch#displayed_head_limit = 10
 " tabline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -201,6 +200,7 @@ vmap <Leader>ta, :Tabularize /,<CR>
 
 " ale (syntas check tool)
 let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_fixers = { 'javascript': ['eslint'] }
 
 " Tern
 nnoremap <Leader>trdf :TernDef<CR>
@@ -215,9 +215,78 @@ let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 " Ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+" tell ack to use silver searcher
+"if executable('ag')
+  "let g:ackprg = 'ag --vimgrep'
+"endif
+" tell ack to use ripgrep
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading'
 endif
+
+
+" Tagbar
+let g:tagbar_type_css = {
+\  'ctagstype': 'Css',
+\ 'kinds': [
+\   'c:classes',
+\   's:selectors',
+\   'i:identities'
+\   ]
+\ }
+
+let g:tagbar_type_less = {
+\  'ctagstype': 'Css',
+\ 'kinds': [
+\   'c:classes',
+\   's:selectors',
+\   'i:identities'
+\   ]
+\ }
+nnoremap <Leader>tb :TagbarToggle<CR>
+
+" fzf
+let g:fzf_layout = { 'down': '~30%' }
+
+func! ContextualFZF()
+  " Determine if inside a git repo
+  silent exec "!git rev-parse --show-toplevel"
+  redraw!
+
+  if v:shell_error
+    " Search in current directory
+    call fzf#run({
+      \'sink': 'e'
+    \ })
+  else
+    " Search in entire git repo
+    call fzf#run({
+      \'source': 'git ls-tree --full-tree --name-only -r HEAD',
+      \'sink': 'e'
+    \ })
+  endif
+endfunc
+
+func! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunc
+
+func! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9 ]*')
+endfunc
+
+"map <C-p> :call ContextualFZF()<CR>
+map <C-p> :call fzf#run(fzf#wrap({ 'down': '30%' }))<CR>
+
+nnoremap <silent> <Leader><Enter> :call fzf#run({
+  \ 'source': reverse(<sid>buflist()),
+  \ 'sink': function('<sid>bufopen'),
+  \ 'options': '+m',
+  \ 'down': len(<sid>buflist()) + 2
+  \ })<CR>
 
 
 "-------- -------- -------- --------
@@ -230,3 +299,9 @@ func! DeleteTrailingWS()
   exe "normal `z`"
 endfunc
 autocmd  BufWrite * :call DeleteTrailingWS()
+
+" About search
+" In file search
+vnoremap // y/<c-r>"<cr>
+"" Ack search
+vnoremap \\ y:Ack! <c-r>"<cr>
