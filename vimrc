@@ -19,8 +19,8 @@ set termguicolors
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme molokai
-"colorscheme tender
+colorscheme srcery
+"colorscheme molokai
 
 
 "-------- -------- -------- --------
@@ -199,8 +199,20 @@ nmap <Leader>ta, :Tabularize /,<CR>
 vmap <Leader>ta, :Tabularize /,<CR>
 
 " ale (syntas check tool)
-let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_completion_enabled = 1
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'typescript': ['tsserver', 'tslint']
+      \}
 let g:ale_fixers = { 'javascript': ['eslint'] }
+
+" YCM
+let g:ycm_echo_current_diagnostic = 0
+let g:ycm_max_diagnostics_to_display = 0
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_enable_diagnostic_signs=0
+let g:ycm_enable_diagnostic_highlighting = 0
+
 
 " Tern
 nnoremap <Leader>trdf :TernDef<CR>
@@ -213,6 +225,8 @@ let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsExpandTrigger = '<c-t>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/.ycm_extra_config.py'
 
 " Ack
 " tell ack to use silver searcher

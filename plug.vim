@@ -8,6 +8,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 " theme
 Plug 'tomasr/molokai'
+Plug 'jacoborus/tender.vim'
+Plug 'srcery-colors/srcery-vim'
 " 可视化缩进
 Plug 'Yggdroot/indentLine'
 " 多行/多列编辑
@@ -45,6 +47,7 @@ Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 " typescript
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 " jsx
 Plug 'mxw/vim-jsx'
 " pug(jade)
