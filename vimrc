@@ -1,7 +1,3 @@
-"if has("gui_macvim")
-"else
-"endif
-
 " use vundle for vim plugin management
 source ~/.vim/plug.vim
 
@@ -19,8 +15,10 @@ set termguicolors
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme srcery
+"colorscheme srcery
 "colorscheme molokai
+colorscheme ayu
+"colorscheme spaceduck
 
 
 "-------- -------- -------- --------
@@ -201,106 +199,88 @@ vmap <Leader>ta, :Tabularize /,<CR>
 " ale (syntas check tool)
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
-      \ 'javascript': ['eslint'],
-      \ 'typescript': ['tsserver', 'tslint']
-      \}
+     \ 'javascript': ['eslint'],
+     \ 'typescript': ['tsserver', 'tslint']
+     \}
 let g:ale_fixers = { 'javascript': ['eslint'] }
 
-" YCM
-let g:ycm_echo_current_diagnostic = 0
-let g:ycm_max_diagnostics_to_display = 0
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_enable_diagnostic_signs=0
-let g:ycm_enable_diagnostic_highlighting = 0
+" coc
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+
+" clang-format
+
+" use tab for trigger completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "<C-p>" : "\<C-h>"
+
+func! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunc
 
 
-" Tern
+"Tern
 nnoremap <Leader>trdf :TernDef<CR>
 nnoremap <Leader>trdc :TernDoc<CR>
 nnoremap <Leader>trty :TernType<CR>
 nnoremap <Leader>trrn :TernRename<CR>
 
-" UltiSnips
-let g:UltiSnipsEditSplit = 'vertical'
-let g:UltiSnipsExpandTrigger = '<c-t>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/.ycm_extra_config.py'
-
 " Ack
-" tell ack to use silver searcher
-"if executable('ag')
-  "let g:ackprg = 'ag --vimgrep'
-"endif
 " tell ack to use ripgrep
 if executable('rg')
-  let g:ackprg = 'rg --vimgrep --no-heading'
+ let g:ackprg = 'rg --vimgrep --no-heading'
 endif
-
-
-" Tagbar
-let g:tagbar_type_css = {
-\  'ctagstype': 'Css',
-\ 'kinds': [
-\   'c:classes',
-\   's:selectors',
-\   'i:identities'
-\   ]
-\ }
-
-let g:tagbar_type_less = {
-\  'ctagstype': 'Css',
-\ 'kinds': [
-\   'c:classes',
-\   's:selectors',
-\   'i:identities'
-\   ]
-\ }
-nnoremap <Leader>tb :TagbarToggle<CR>
 
 " fzf
 let g:fzf_layout = { 'down': '~30%' }
 
 func! ContextualFZF()
-  " Determine if inside a git repo
-  silent exec "!git rev-parse --show-toplevel"
-  redraw!
+ " Determine if inside a git repo
+ silent exec "!git rev-parse --show-toplevel"
+ redraw!
 
-  if v:shell_error
-    " Search in current directory
-    call fzf#run({
-      \'sink': 'e'
-    \ })
-  else
-    " Search in entire git repo
-    call fzf#run({
-      \'source': 'git ls-tree --full-tree --name-only -r HEAD',
-      \'sink': 'e'
-    \ })
-  endif
+ if v:shell_error
+   " Search in current directory
+   call fzf#run({
+     \'sink': 'e'
+   \ })
+ else
+   " Search in entire git repo
+   call fzf#run({
+     \'source': 'git ls-tree --full-tree --name-only -r HEAD',
+     \'sink': 'e'
+   \ })
+ endif
 endfunc
 
 func! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
+ redir => ls
+ silent ls
+ redir END
+ return split(ls, '\n')
 endfunc
 
 func! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9 ]*')
+ execute 'buffer' matchstr(a:e, '^[ 0-9 ]*')
 endfunc
 
-"map <C-p> :call ContextualFZF()<CR>
+map <C-p> :call ContextualFZF()<CR>
 map <C-p> :call fzf#run(fzf#wrap({ 'down': '30%' }))<CR>
 
 nnoremap <silent> <Leader><Enter> :call fzf#run({
-  \ 'source': reverse(<sid>buflist()),
-  \ 'sink': function('<sid>bufopen'),
-  \ 'options': '+m',
-  \ 'down': len(<sid>buflist()) + 2
-  \ })<CR>
+ \ 'source': reverse(<sid>buflist()),
+ \ 'sink': function('<sid>bufopen'),
+ \ 'options': '+m',
+ \ 'down': len(<sid>buflist()) + 2
+ \ })<CR>
 
 
 "-------- -------- -------- --------
@@ -308,14 +288,14 @@ nnoremap <silent> <Leader><Enter> :call fzf#run({
 "-------- -------- -------- --------
 " 保存时自动移除行尾空格
 func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z`"
+ exe "normal mz"
+ %s/\s\+$//ge
+ exe "normal `z`"
 endfunc
 autocmd  BufWrite * :call DeleteTrailingWS()
 
 " About search
 " In file search
 vnoremap // y/<c-r>"<cr>
-"" Ack search
+" Ack search
 vnoremap \\ y:Ack! <c-r>"<cr>
