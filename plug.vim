@@ -40,10 +40,6 @@ Plug 'posva/vim-vue'
 " typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-"less
-"Plug 'groenewege/vim-less'
-" json
-Plug 'elzr/vim-json'
 "rust
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'

@@ -226,6 +226,11 @@ func! s:check_back_space() abort
   return !col || getline('.')[col - 1] =~# '\s'
 endfunc
 
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "Tern
 nnoremap <Leader>trdf :TernDef<CR>
