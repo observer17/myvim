@@ -254,15 +254,9 @@ func! ContextualFZF()
 
  if v:shell_error
    " Search in current directory
-   call fzf#run({
-     \'sink': 'e'
-   \ })
+   exec "Files"
  else
-   " Search in entire git repo
-   call fzf#run({
-     \'source': 'git ls-tree --full-tree --name-only -r HEAD',
-     \'sink': 'e'
-   \ })
+   exec "GFiles"
  endif
 endfunc
 
@@ -278,15 +272,9 @@ func! s:bufopen(e)
 endfunc
 
 map <C-p> :call ContextualFZF()<CR>
-map <C-p> :call fzf#run(fzf#wrap({ 'down': '30%' }))<CR>
 
-nnoremap <silent> <Leader><Enter> :call fzf#run({
- \ 'source': reverse(<sid>buflist()),
- \ 'sink': function('<sid>bufopen'),
- \ 'options': '+m',
- \ 'down': len(<sid>buflist()) + 2
- \ })<CR>
-
+" For chromium
+"set rtp+=/Users/wangxiao/repos/lark/aha/tools/vim/mojom
 
 "-------- -------- -------- --------
 "              Funtion
@@ -304,3 +292,11 @@ autocmd  BufWrite * :call DeleteTrailingWS()
 vnoremap // y/<c-r>"<cr>
 " Ack search
 vnoremap \\ y:Ack! <c-r>"<cr>
+
+" clang-format
+let s:script = expand('<sfile>:p:h') . '/.vim/clang-format.py'
+let s:shortcut = "<leader>f"
+let s:pyf = has("python3") ? ":py3f" : ":pyf"
+
+execute "map" s:shortcut s:pyf s:script . "<CR>"
+execute "imap" s:shortcut "<ESC>" s:pyf s:script . "<CR>i"
